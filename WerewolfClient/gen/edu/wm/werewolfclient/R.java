@@ -994,13 +994,13 @@ containing a value of this type.
         public static final int action_bar_subtitle=0x7f050021;
         public static final int action_bar_title=0x7f050020;
         public static final int action_context_bar=0x7f05001b;
-        public static final int action_forgot_password=0x7f050064;
+        public static final int action_forgot_password=0x7f05005b;
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_bar=0x7f05002f;
         public static final int action_mode_bar_stub=0x7f05002e;
         public static final int action_mode_close_button=0x7f050022;
-        public static final int action_settings=0x7f050065;
+        public static final int action_settings=0x7f05005c;
         public static final int activity_chooser_view_content=0x7f050023;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
@@ -1022,7 +1022,6 @@ containing a value of this type.
         public static final int icon=0x7f050028;
         public static final int ifRoom=0x7f05000a;
         public static final int image=0x7f050025;
-        public static final int imageView1=0x7f050061;
         public static final int lastNameText=0x7f05004d;
         public static final int left_icon=0x7f050031;
         public static final int listMode=0x7f050001;
@@ -1036,10 +1035,8 @@ containing a value of this type.
         public static final int never=0x7f050009;
         public static final int none=0x7f050010;
         public static final int normal=0x7f050000;
-        public static final int overviewGameSum=0x7f050063;
         public static final int password=0x7f050046;
         public static final int passwordText=0x7f050051;
-        public static final int progressBar1=0x7f050062;
         public static final int progress_circular=0x7f050034;
         public static final int progress_horizontal=0x7f050035;
         public static final int radio=0x7f05002d;
@@ -1072,10 +1069,6 @@ containing a value of this type.
         public static final int tableRow5=0x7f050050;
         public static final int tableRow6=0x7f050054;
         public static final int tableRow7=0x7f050056;
-        public static final int textView1=0x7f05005c;
-        public static final int textView2=0x7f05005f;
-        public static final int textView3=0x7f05005e;
-        public static final int textView4=0x7f05005d;
         public static final int title=0x7f050029;
         public static final int title_container=0x7f050030;
         public static final int top_action_bar=0x7f05001e;
@@ -1083,8 +1076,6 @@ containing a value of this type.
         public static final int useLogo=0x7f050003;
         public static final int usernameText=0x7f05004f;
         public static final int verifyPasswordText=0x7f050053;
-        public static final int view_flipper=0x7f05005b;
-        public static final int voteButton=0x7f050060;
         public static final int withText=0x7f05000c;
     }
     public static final class integer {
