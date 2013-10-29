@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Werewolf</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="username">Username</string>
+    <string name="firstName">First Name</string>
+    <string name="lastName">Last Name</string>
+    <string name="password">Password</string>
+    <string name="verifyPassword">Verify Password</string>
+    <string name="submit">Submit</string>
+    <string name="title_activity_user">UserActivity</string>
+    <string name="title_activity_test_request">TestRequest</string>
+    <string name="gameInfo">Game Info</string>
+    <string name="playerInfo">Player Info</string>
+    <string name="loading">Loading Information</string>
+    <string name="werewolf">Werewolf Image</string>
+
+</resources>
