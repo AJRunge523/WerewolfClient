@@ -7,23 +7,19 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity" >
+    tools:context=".RegisterUserActivity" >
 
     <TableRow
         android:id="@+id/tableRow2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/firstName" />
-
         <EditText
             android:id="@+id/firstNameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="@string/firstName"
             android:inputType="textCapWords|textPersonName" />
     </TableRow>
 
@@ -32,16 +28,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/lastName" />
-
         <EditText
             android:id="@+id/lastNameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="@string/lastName"
             android:inputType="textCapWords|textPersonName" />
     </TableRow>
 
@@ -50,16 +42,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/username" />
-
         <EditText
             android:id="@+id/usernameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="@string/username"
             android:inputType="textPersonName" />
     </TableRow>
 
@@ -68,16 +56,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/password" />
-
         <EditText
             android:id="@+id/passwordText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="@string/password"
             android:inputType="textPassword" />
     </TableRow>
 
@@ -86,16 +70,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/verifyPassword" />
-
         <EditText
             android:id="@+id/verifyPasswordText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="@string/verify_password"
             android:inputType="textPassword" >
 
             <requestFocus />
@@ -115,7 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_span="2"
             android:text="@string/submit" 
-            android:onClick="sendUserCreate"/>
+            android:onClick="asyncTaskTest"/>
 
     </TableRow>
     
@@ -129,11 +109,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_span="2" 
-            android:text="No Query Made Yet">
+            android:text=""
+            android:visibility="gone">
             
         </TextView>
         
         </TableRow>
-
+	
+        <TableRow
+        android:id="@+id/tableRow8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+        
+		<ProgressBar
+        android:id="@+id/progressBar1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:visibility="gone"/>
+            
+        
+        </TableRow>
 
 </TableLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello_world">Hello world!</string>
+    <string name="username">Username</string>
+    <string name="firstName">First Name</string>
+    <string name="lastName">Last Name</string>
+    <string name="password">Password</string>
+    <string name="verify_password">Re-type Password</string>
+    <string name="submit">Submit</string>
+    <string name = "password_mismatch">Passwords Do not Match</string>
+    <string name = "required_field"> Required Field</string>
+</resources>

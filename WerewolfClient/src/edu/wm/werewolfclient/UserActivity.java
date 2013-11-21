@@ -13,15 +13,16 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 
 
 public class UserActivity extends Activity {
 
-    private static final int SWIPE_MIN_DISTANCE = 60;
+    private static final int SWIPE_MIN_DISTANCE = 50;
     private static final int SWIPE_MAX_OFF_PATH = 250;
-    private static final int SWIPE_THRESHOLD_VELOCITY = 200;
+    private static final int SWIPE_THRESHOLD_VELOCITY = 170;
 	
 	private ViewFlipper viewFlipper;
 	private float lastX;
@@ -133,6 +134,11 @@ public class UserActivity extends Activity {
                         && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
     				viewFlipper.setInAnimation(slideRightIn);
     				viewFlipper.setOutAnimation(slideLeftOut);
+    				if(viewFlipper.getDisplayedChild() == 0)
+    				{
+    					Toast toast = Toast.makeText(getApplicationContext(), "This is view 0!", Toast.LENGTH_SHORT);
+    			    	toast.show();
+    				}
                     viewFlipper.showNext();
                 } else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE
                         && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
