@@ -4,46 +4,39 @@
 
     <!-- Login progress -->
 
-    <LinearLayout
-        android:id="@+id/login_status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:visibility="gone" >
-
-        <TextView
-            android:id="@+id/login_status_message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:fontFamily="sans-serif-light"
-            android:text="@string/login_progress_signing_in"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-    </LinearLayout>
-
-    <!-- Login form -->
-
     <ScrollView
         android:id="@+id/login_form"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
 
-        <RelativeLayout
-            android:id="@+id/RelativeLayout1"
+        <LinearLayout
+            android:id="@+id/LinearLayout1"
             style="@style/LoginFormContainer"
-            android:layout_height="179dp"
             android:layout_gravity="center"
-            android:gravity="center_horizontal"
             android:orientation="vertical" >
+
+            <ProgressBar
+                android:id="@+id/login_progress_bar"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content" 
+                android:visibility="gone"/>
+
+            <EditText
+                android:id="@+id/login_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/prompt_username"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true" />
 
             <EditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/email"
-                android:layout_centerVertical="true"
                 android:ems="10"
                 android:hint="@string/prompt_password"
                 android:imeActionId="@+id/login"
@@ -56,28 +49,27 @@
                 <requestFocus />
             </EditText>
 
-            <EditText
-                android:id="@+id/email"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:ems="10"
-                android:hint="@string/prompt_username"
-                android:inputType="textEmailAddress"
-                android:maxLines="1"
-                android:singleLine="true" />
+                android:layout_height="wrap_content" >
 
-            <Button
-                android:id="@+id/sign_in_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:paddingLeft="32dp"
-                android:paddingRight="32dp"
-                android:text="@string/action_sign_in_register" />
+                <Button
+                    android:id="@+id/sign_in_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="32dp"
+                    android:paddingRight="32dp"
+                    android:text="@string/action_sign_in_register" />
 
-        </RelativeLayout>
+                <Button
+                    android:id="@+id/register_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/register_text"
+                    android:onClick="startRegister" />
+
+            </LinearLayout>
+        </LinearLayout>
     </ScrollView>
 
 </merge>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gameInfo">Game Info</string>
+    <string name="playerInfo">Player Info</string>
+    <string name="loading">Loading Information</string>
+    <string name="werewolf">Werewolf Image</string>
+</resources>

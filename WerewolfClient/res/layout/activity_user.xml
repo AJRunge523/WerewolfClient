@@ -10,74 +10,17 @@
             android:id="@+id/view_flipper"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_margin="0dip" >
+            android:layout_margin="0dip"
+            tools:ignore="UselessParent" >
            
         <!--  The child Views/Layout to flip -->
        
-        <!--  Layout 1 for 1st Screen -->
-            <RelativeLayout
+       <!--  The layout for the first screen -->
+                   <RelativeLayout
+                    android:id="@+id/gameInfoView"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:orientation="vertical" >
-		
-				   <TextView
-				       android:id="@+id/textView1"
-				       android:layout_width="wrap_content"
-				       android:layout_height="wrap_content"
-				       android:layout_alignParentLeft="true"
-				       android:layout_alignParentRight="true"
-				       android:layout_alignParentTop="true"
-				       android:text="@string/gameInfo" />
-				
-				   <TextView
-				       android:id="@+id/textView4"
-				       android:layout_width="wrap_content"
-				       android:layout_height="wrap_content"
-				       android:layout_alignLeft="@+id/textView3"
-				       android:layout_below="@+id/textView3" 
-				       android:text="@string/loading"/>
-				   
-				   <TextView
-				       android:id="@+id/textView3"
-				       android:layout_width="wrap_content"
-				       android:layout_height="wrap_content"
-				       android:layout_alignParentLeft="true"
-				       android:layout_centerVertical="true"
-				       android:text="@string/playerInfo" />
-				
-				   <TextView
-				       android:id="@+id/textView2"
-				       android:layout_width="wrap_content"
-				       android:layout_height="wrap_content"
-				       android:layout_alignLeft="@+id/textView1"
-				       android:layout_below="@+id/textView1" 
-				       android:text="@string/loading"/>
-
-                   
-            </RelativeLayout>
-           
-             <!--  Layout 2 for 2nd Screen -->
-           
-           	<LinearLayout 
-			    android:layout_width="match_parent"
-			    android:layout_height="match_parent"
-			    android:orientation="vertical">
-			
-				<ListView android:id="@android:id/list"
-				          android:layout_height="0dip"
-				          android:layout_width="match_parent"
-				          android:layout_weight="1" />
-	
-				<Button android:id="@+id/voteButton" 
-				        android:layout_width="match_parent"
-				        android:layout_height="wrap_content"/>
-				
-			</LinearLayout>
-           
-           
-            <RelativeLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
+                    android:background="@drawable/bg_transition"
                     android:orientation="vertical" >
 
 				    <ImageView
@@ -88,26 +31,147 @@
 				        android:layout_alignParentTop="true"
 				        android:contentDescription="@string/werewolf"
 				        android:src="@drawable/werewolf" />
-				
-				    <ProgressBar
-				        android:id="@+id/progressBar1"
-				        style="?android:attr/progressBarStyleLarge"
-				        android:layout_width="wrap_content"
-				        android:layout_height="wrap_content"
-				        android:layout_below="@+id/imageView1"
-				        android:layout_centerHorizontal="true"
-				        android:progress="60" />
-				
+
 				    <TextView
 				        android:id="@+id/overviewGameSum"
 				        android:layout_width="wrap_content"
 				        android:layout_height="wrap_content"
 				        android:layout_alignParentLeft="true"
-				        android:layout_below="@+id/progressBar1"
-				        android:text="@string/loading" />
+				        android:layout_below="@+id/playerWerewolfBar"
+				        android:layout_marginTop="24dp"
+				        android:text="@string/loading"
+				        android:textColor="@color/text_color" 
+				        android:textSize="24sp"/>
+
+				    <ProgressBar
+				        android:id="@+id/gameOverviewLoadingBar"
+				        android:layout_width="wrap_content"
+				        android:layout_height="wrap_content"
+				        android:layout_alignParentBottom="true"
+				        android:layout_alignParentRight="true"
+				        />
+
+				    <ProgressBar
+				        android:id="@+id/playerWerewolfBar"
+				        style="?android:attr/progressBarStyleHorizontal"
+				        android:layout_width="fill_parent"
+				        android:layout_height="wrap_content"
+				        android:layout_alignParentLeft="true"
+				        android:indeterminate="false"
+					    android:maxHeight="10dip"
+					    android:minHeight="10dip"
+				        android:layout_below="@+id/imageView1"
+				        android:progressDrawable="@drawable/werewolf_progress"
+				        android:progress="0" />
+
+				    <TextView
+				        android:id="@+id/playerTownsCountText"
+				        android:layout_width="wrap_content"
+				        android:layout_height="wrap_content"
+				        android:layout_alignParentLeft="true"
+				        android:layout_below="@+id/playerWerewolfBar"
+				        android:text="@string/loading"
+				        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+				    <TextView
+				        android:id="@+id/playerWerewolfCountText"
+				        android:layout_width="wrap_content"
+				        android:layout_height="wrap_content"
+				        android:layout_alignBaseline="@+id/playerTownsCountText"
+				        android:layout_alignBottom="@+id/playerTownsCountText"
+				        android:layout_alignParentRight="true"
+				        android:text="@string/loading"
+				        android:textAppearance="?android:attr/textAppearanceSmall" />
 				    
             </RelativeLayout>
-            
+       
+       
+        <!--  Layout 1 for 2nd Screen -->
+            <RelativeLayout
+                	android:id="@+id/gameStatsView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/bg_transition"
+                    android:orientation="vertical" >
+		
+				   <TextView
+				       android:id="@+id/gameInfoLabelText"
+				       android:layout_width="wrap_content"
+				       android:layout_height="wrap_content"
+				       android:layout_alignParentLeft="true"
+				       android:layout_alignParentRight="true"
+				       android:layout_alignParentTop="true"
+				       android:text="@string/gameInfo" />
+				
+				   <TextView
+				       android:id="@+id/playerInfoText"
+				       android:layout_width="wrap_content"
+				       android:layout_height="wrap_content"
+				       android:layout_alignLeft="@+id/playerInfoLabelText"
+				       android:layout_below="@+id/playerInfoLabelText" 
+				       android:text="@string/loading"/>
+				   
+				   <TextView
+				       android:id="@+id/playerInfoLabelText"
+				       android:layout_width="wrap_content"
+				       android:layout_height="wrap_content"
+				       android:layout_alignParentLeft="true"
+				       android:layout_centerVertical="true"
+				       android:text="@string/playerInfo" />
+
+				   <TextView
+				       android:id="@+id/gameInfoText"
+				       android:layout_width="wrap_content"
+				       android:layout_height="wrap_content"
+				       android:layout_alignParentLeft="true"
+				       android:layout_below="@+id/gameInfoLabelText"
+				       android:text="@string/loading" />
+                   
+            </RelativeLayout>
+           
+             <!--  Layout 2 for 3rd Screen -->
+           
+           	<LinearLayout 
+           	    android:id="@+id/killView"
+			    android:layout_width="match_parent"
+			    android:layout_height="match_parent"
+			    android:background="@drawable/bg_transition"
+			    android:orientation="vertical">
+			
+				<ListView android:id="@+id/player_kill_list"
+				          android:layout_height="0dip"
+				          android:layout_width="match_parent"
+				          android:background="@drawable/bg_transition"
+				          android:layout_weight="1" />
+	
+				<Button
+				    android:id="@+id/killButton"
+				    android:layout_width="match_parent"
+				    android:layout_height="wrap_content"
+				    android:text="@string/kill_button" />
+				
+			</LinearLayout>
+			
+           	<LinearLayout 
+           	    android:id="@+id/voteView"
+			    android:layout_width="match_parent"
+			    android:layout_height="match_parent"
+			    android:background="@drawable/bg_transition"
+			    android:orientation="vertical">
+			
+				<ListView android:id="@+id/player_vote_list"
+				          android:layout_height="0dip"
+				          android:layout_width="match_parent"
+				          android:background="@drawable/bg_transition"
+				          android:layout_weight="1" />
+	
+				<Button
+				    android:id="@+id/voteButton"
+				    android:layout_width="match_parent"
+				    android:layout_height="wrap_content"
+				    android:text="@string/vote_button" />
+				
+			</LinearLayout>
 
 
         </ViewFlipper>
