@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-        <string name="kill_button">KILL</string>
-        <string name="vote_button">VOTE</string>
+        <string name="kill_button">KILL!</string>
+        <string name="vote_button">VOTE!</string>
+        <string name="players">Players</string>
+        <string name="kills">Kills</string>
+        <string name="victimLabel">Victim</string>
+        <string name="killedByLabel">Killed By</string>
+        <string name="victimRoleLabel">Role</string>
+        <string name="timeOfDeathLabel">Time</string>
+        
 </resources>

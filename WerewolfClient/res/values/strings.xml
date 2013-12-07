@@ -7,5 +7,9 @@
     <string name="title_activity_test_request">TestRequest</string>
     <string name="logout">Logout</string>
     <string name="reload">Reload</string>
+    <string name="title_activity_admin">AdminActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_scream">ScreamActivity</string>
+    <string name="you_died">YOU HAVE BEEN HORRIBLY MURDERED!</string>
 
 </resources>

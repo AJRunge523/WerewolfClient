@@ -15,13 +15,13 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.auth.BasicScheme;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.CoreConnectionPNames;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.Activity;
 import android.os.AsyncTask;
+import android.util.Base64;
 import android.util.Log;
-import android.widget.Toast;
 
 public class WebRequestManager {
 	
@@ -32,6 +32,8 @@ public class WebRequestManager {
 	WebRequest KLRequest = null;
 	WebRequest VRequest = null;
 	WebRequest KRequest = null;
+	WebRequest LRequest = null;
+	WebRequest AKRequest = null;
 	
 	
 	public WebRequestManager() { }
@@ -82,6 +84,20 @@ public class WebRequestManager {
 				KRequest.execute();
 			}
 			break;
+		case 5:
+			if(LRequest == null)
+			{
+				Log.v(TAG, "Beginning a Location Update Request");
+				LRequest = new WebRequest(activity, URI, username, password, payload, type);
+				LRequest.execute();
+			}
+		case 6:
+			if(AKRequest == null)
+			{
+				Log.v(TAG, "Beginning an All Kill Request");
+				AKRequest = new WebRequest(activity, URI, username, password, payload, type);
+				AKRequest.execute();
+			}
 		default:
 			break;
 		}
@@ -130,13 +146,23 @@ public class WebRequestManager {
 				else
 				{
 					HttpPost httpPost = new HttpPost(uri);
-					JSONObject obj = new JSONObject(payload);
+					JSONObject obj;
+					if(type==6)
+					{
+						HashMap<String, Integer> newPayload = new HashMap<String, Integer>();
+						newPayload.put("time", Integer.valueOf(payload.get("time")));
+						obj = new JSONObject(newPayload);
+					}
+					else
+						obj = new JSONObject(payload);
 					Log.i(TAG, obj.toString());
 					//Make the post
 					StringEntity se = new StringEntity(obj.toString());
 					httpPost.setEntity(se);
-					httpPost.setHeader("Content-Type", "application/json");
-					httpPost.addHeader(BasicScheme.authenticate(new UsernamePasswordCredentials(username, password), "UTF-8", false));
+					httpPost.setHeader( "Content-Type", "application/json");
+					//Have to use the NO_WRAP mode because otherwise dumb shit happens
+					String authorizationString = "Basic " + Base64.encodeToString((username + ":" + password).getBytes(), Base64.NO_WRAP); 
+					httpPost.setHeader("Authorization", authorizationString);
 					response = httpclient.execute(httpPost);
 				}
 				
@@ -190,7 +216,10 @@ public class WebRequestManager {
 				Log.v(TAG, status);
 				if(!status.equals("success"))
 				{
-					Log.e(TAG, "HUGE ERROR");
+					if(type==6)
+					{
+						activity.loadKills(null);
+					}
 				}
 				else
 				{
@@ -204,8 +233,32 @@ public class WebRequestManager {
 						data.put("players", dataObj.getString("players"));
 						data.put("left", dataObj.getString("left"));
 						data.put("alive", dataObj.getString("alive"));
+						data.put("created", dataObj.getString("created"));
 						activity.onGDUpdate(data);
+						break;
+					
+					case 1:
+						JSONArray array = obj.getJSONArray("data");
+						activity.loadVoteList(array);
+						break;
+					case 2:
+						JSONArray playerArray = obj.getJSONArray("data");
+						activity.loadNearbyPlayers(playerArray);
+						break;
+					case 3:
+						activity.onVoteRequest();
+						break;
+					case 4:
+						activity.onKillRequest();
+						break;
+					case 5:
+						break;
+					
+					case 6:
+						JSONArray killArray = obj.getJSONArray("data");
+						activity.loadKills(killArray);
 					}
+					
 				}
 			} catch (JSONException e) {
 				e.printStackTrace();
@@ -229,6 +282,12 @@ public class WebRequestManager {
 				 break;
 			 case 4:
 				 KRequest = null;
+				 break;
+			 case 5:
+				 LRequest = null;
+				 break;
+			 case 6:
+				 AKRequest = null;
 				 break;
 			 default: break;
 			 }

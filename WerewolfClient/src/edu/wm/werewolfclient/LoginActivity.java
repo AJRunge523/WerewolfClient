@@ -273,13 +273,31 @@ public class LoginActivity extends Activity {
 							editor.putString("user", mUserName);
 							editor.putString("pw", mPassword);
 							editor.commit();
-							Intent intent = new Intent(currentActivity, UserActivity.class);
-							intent.putExtra("ROLE", dataObj.getString("ROLE"));
-							intent.putExtra("TYPE", dataObj.getString("TYPE"));
-							intent.putExtra("username", mUserName);
-							intent.putExtra("password", mPassword);
-							startActivity(intent);
-							currentActivity.finish();
+							if(dataObj.getString("ROLE").equals("ROLE_ADMIN"))
+							{
+								Intent intent = new Intent(currentActivity, AdminActivity.class);
+								intent.putExtra("username", mUserName);
+								intent.putExtra("password", mPassword);
+								startActivity(intent);
+								currentActivity.finish();
+							}
+							else
+							{	
+								Intent intent;
+								if(prefs.getString(mUserName, "ALIVE").equals("ALIVE") && dataObj.getString("STATUS").equals("DEAD"))
+								{
+									intent = new Intent(currentActivity, ScreamActivity.class);
+								}
+								else
+									intent = new Intent(currentActivity, UserActivity.class);
+								intent.putExtra("ROLE", dataObj.getString("ROLE"));
+								intent.putExtra("TYPE", dataObj.getString("TYPE"));
+								intent.putExtra("STATUS", dataObj.getString("STATUS"));
+								intent.putExtra("username", mUserName);
+								intent.putExtra("password", mPassword);
+								startActivity(intent);
+								currentActivity.finish();
+							}
 							
 						}
 					} catch (JSONException e) {

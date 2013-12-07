@@ -1,0 +1,3 @@
+<WakefulIntentService
+  listener="edu.wm.werewolfclient.AppListener"
+/>

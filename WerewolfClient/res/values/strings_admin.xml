@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="restart">Start New Game</string>
+    <string-array name="TimesArray">
+        <item>10 seconds</item>
+        <item>5 minutes</item>
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>2 hours</item>
+        <item>4 hours</item>
+        <item>6 hours</item>
+        <item>12 hours</item>
+
+    </string-array>
+    <string name="smite_player">Smite Player</string>
+    <string name="remove_user">Remove User</string>
+    <string name="in_game">In Game</string>
+    <string name="not_in_game">Not In Game</string>
+    <string name="last_update">Last updated: </string>
+    <string name="admin_user_list_label">Users</string>
+    <string name="admin_player_list_label">Players</string>
+    <string name="admin_update_label">Last Update/Status</string>
+</resources>
